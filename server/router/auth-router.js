@@ -2,6 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { home } = require("../controller/auth-controller");
 
-router.route("/").get(home);
+router.route("/").post(home);
 
 module.exports = router;
