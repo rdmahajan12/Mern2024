@@ -93,7 +93,6 @@ const Register = () => {
                       onChange={onChangeUser}
                     />
                   </div>
-                  <br />
                   <button type="submit" className="btn btn-submit">
                     Register Now
                   </button>

@@ -65,7 +65,6 @@ const Login = () => {
                       onChange={onChangeUser}
                     />
                   </div>
-                  <br />
                   <button type="submit" className="btn btn-submit">
                     Login Now
                   </button>

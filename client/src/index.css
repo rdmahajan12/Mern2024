@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Urbanist, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color-scheme: light dark;
+  font-family: Urbanist, system-ui, Vanir, Helvetica, Arial, sans-serif;
+  background-color: aliceblue;
 }
 
 :root {
@@ -140,19 +140,19 @@ a.active {
   }
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: white;
+    background-color: black;
   }
   a:hover,
   a.active {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: blue;
   }
-}
+} */
 
 /***** Hero Section *****/
 

@@ -7,7 +7,14 @@ const Navbar = () => {
     <div>
       <header>
         <div className="container">
-          <div className="logo-brand">Ritesh Brand</div>
+          <div className="logo-brand">
+            <img
+              src="/images/logo.jpg"
+              alt="brand logo"
+              width="100"
+              height="50"
+            />
+          </div>
           <nav>
             <ul>
               <li>
