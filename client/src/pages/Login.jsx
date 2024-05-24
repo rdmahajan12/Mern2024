@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
+
+const URL = "http://localhost:3000/api/auth/login";
 
 const Login = () => {
   const [login, setLogin] = useState({
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
+  const { setServerToken } = useAuth();
 
   const onChangeUser = (e) => {
     let name = e.target.name;
@@ -16,9 +23,28 @@ const Login = () => {
     });
   };
 
-  const onSubmitForm = (e) => {
+  const onSubmitForm = async (e) => {
     e.preventDefault();
-    console.log({ login });
+    try {
+      const res = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(login),
+      });
+
+      if (res.ok) {
+        const userData = await res.json();
+        setServerToken(userData.token);
+        setLogin({ email: "", password: "" });
+        navigate("/");
+      }
+
+      console.log({ res });
+    } catch (error) {
+      console.log("login", error);
+    }
   };
 
   return (
