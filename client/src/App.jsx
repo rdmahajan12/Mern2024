@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Error from "./pages/Error";
+import Logout from "./pages/Logout";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/service" element={<Service />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

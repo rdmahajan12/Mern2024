@@ -40,8 +40,6 @@ const Login = () => {
         setLogin({ email: "", password: "" });
         navigate("/");
       }
-
-      console.log({ res });
     } catch (error) {
       console.log("login", error);
     }

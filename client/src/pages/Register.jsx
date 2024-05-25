@@ -38,13 +38,10 @@ const Register = () => {
 
       if (res.ok) {
         const userData = await res.json();
-        console.log({ userData });
         setServerToken(userData.token);
         setUser({ username: "", email: "", phone: "", password: "" });
         navigate("/login");
       }
-
-      console.log({ res });
     } catch (error) {
       console.log("register", error);
     }

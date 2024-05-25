@@ -1,13 +1,19 @@
 import React from "react";
 import Analytics from "../Components/Analytics";
+import { useAuth } from "../store/auth";
 
 const About = () => {
+  const { user } = useAuth();
+
   return (
     <div>
       <section className="section-hero">
         <div className="container grid grid-two-cols">
           <div className="hero-content">
-            <p>Welcome to Ritesh</p>
+            <p>
+              Welcome{" "}
+              {user ? `${user.username} to our website` : "to our website"}
+            </p>
             <h1>Why Choose Us?</h1>
             <p>
               There are several reasons why a customer might choose your company

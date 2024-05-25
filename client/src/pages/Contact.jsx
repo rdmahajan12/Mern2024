@@ -1,11 +1,29 @@
 import React, { useState } from "react";
+import { useAuth } from "../store/auth";
+
+const URL = "http://localhost:3000/api/form/contact";
+
+const initialData = {
+  username: "",
+  email: "",
+  message: "",
+};
 
 const Contact = () => {
-  const [contact, setContact] = useState({
-    username: "",
-    email: "",
-    message: "",
-  });
+  const [contact, setContact] = useState(initialData);
+
+  const [userData, setUserData] = useState(true);
+  const { user } = useAuth();
+
+  if (userData && user) {
+    setContact({
+      username: user.username,
+      email: user.email,
+      message: "",
+    });
+
+    setUserData(false);
+  }
 
   const onChangeUser = (e) => {
     let name = e.target.name;
@@ -17,9 +35,27 @@ const Contact = () => {
     });
   };
 
-  const onSubmitForm = (e) => {
+  const onSubmitForm = async (e) => {
     e.preventDefault();
-    console.log({ contact });
+    try {
+      const res = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contact),
+      });
+
+      console.log({ res });
+
+      if (res.ok) {
+        const contactData = await res.json();
+        setContact(initialData);
+        console.log({ contactData });
+      }
+    } catch (error) {
+      console.log("contact", error);
+    }
   };
 
   return (
@@ -89,7 +125,7 @@ const Contact = () => {
             height="450"
             allowFullScreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </section>
       </section>
