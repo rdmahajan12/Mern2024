@@ -40,7 +40,7 @@ const login = async (req, res, next) => {
     const { email, password } = req.body;
     const userExist = await User.findOne({ email });
     if (!userExist) {
-      return res.status(400).json("User not found");
+      return res.status(400).json({ message: "User not found" });
     }
 
     const user = await userExist.comparePassword(password);
