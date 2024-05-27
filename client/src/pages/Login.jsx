@@ -34,11 +34,14 @@ const Login = () => {
         body: JSON.stringify(login),
       });
 
+      const userData = await res.json();
+
       if (res.ok) {
-        const userData = await res.json();
         setServerToken(userData.token);
         setLogin({ email: "", password: "" });
         navigate("/");
+      } else {
+        alert(userData.extraDetails ? userData.extraDetails : userData.message);
       }
     } catch (error) {
       console.log("login", error);

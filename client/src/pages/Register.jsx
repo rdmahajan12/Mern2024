@@ -36,11 +36,14 @@ const Register = () => {
         body: JSON.stringify(user),
       });
 
+      const userData = await res.json();
+
       if (res.ok) {
-        const userData = await res.json();
         setServerToken(userData.token);
         setUser({ username: "", email: "", phone: "", password: "" });
         navigate("/login");
+      } else {
+        alert(userData.extraDetails ? userData.extraDetails : userData.message);
       }
     } catch (error) {
       console.log("register", error);

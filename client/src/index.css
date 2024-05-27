@@ -414,7 +414,7 @@ a.active {
     & .card-img {
       text-align: center;
       & img {
-        width: 70%;
+        width: 50%;
         height: auto;
         filter: drop-shadow(0 0 2rem 2rem #fff);
         -webkit-filter: drop-shadow(0 0 2rem 2rem #fff);
