@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Urbanist, system-ui, Vanir, Helvetica, Arial, sans-serif;
-  background-color: aliceblue;
 }
 
 :root {
@@ -25,6 +24,7 @@ body {
   place-items: center; */
   /* min-width: 32rem; */
   min-height: 100vh;
+  background-color: aliceblue;
 }
 
 h1 {
