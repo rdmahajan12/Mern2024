@@ -14,7 +14,7 @@ const Register = () => {
   });
 
   const navigate = useNavigate();
-  const { setServerToken } = useAuth();
+  const { setServerToken, API } = useAuth();
 
   const onChangeUser = (e) => {
     let name = e.target.name;
@@ -29,7 +29,7 @@ const Register = () => {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(URL, {
+      const res = await fetch(`${API}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

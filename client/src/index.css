@@ -473,7 +473,7 @@ th {
   font-size: 1.8rem;
   letter-spacing: 0.1rem;
   padding: 3rem;
-  color: var(--dark-color);
+  color: white;
   box-shadow: 0 0.3rem 0 grey;
   margin-bottom: 10px;
   text-transform: capitalize;
@@ -483,13 +483,13 @@ td {
   letter-spacing: 0.1rem;
   padding: 3rem;
   text-align: center;
-  color: var(--dark-color);
+  color: white;
   width: 30rem;
   /* border: 0.1rem solid red; */
 }
 
 table {
-  background: #fff;
+  background: #074c60;
   box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
   border-collapse: collapse;
   border-radius: 1rem;

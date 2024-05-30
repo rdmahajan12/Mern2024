@@ -3,7 +3,6 @@ import { useAuth } from "../store/auth";
 
 const Service = () => {
   const { service } = useAuth();
-  console.log({ service });
 
   return (
     <div>

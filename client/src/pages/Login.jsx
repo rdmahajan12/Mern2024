@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
-const URL = "http://localhost:3000/api/auth/login";
-
 const Login = () => {
   const [login, setLogin] = useState({
     email: "",
@@ -12,7 +10,7 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
-  const { setServerToken } = useAuth();
+  const { setServerToken, API } = useAuth();
 
   const onChangeUser = (e) => {
     let name = e.target.name;
@@ -27,7 +25,7 @@ const Login = () => {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(URL, {
+      const res = await fetch(`${API}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
