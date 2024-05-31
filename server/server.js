@@ -9,13 +9,13 @@ const errorMiddleware = require("./middleware/error-middleware");
 const serviceRouter = require("./router/service-router");
 const adminRouter = require("./router/admin-router");
 
-const corsOptions = {
-  origin: "http://localhost:5173",
-  methods: "GET, POST, PUT, DELETE, PATCH",
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: "http://localhost:5173",
+//   methods: "GET, POST, PUT, DELETE, PATCH",
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/form", contactRouter);
