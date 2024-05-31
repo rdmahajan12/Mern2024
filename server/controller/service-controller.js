@@ -4,11 +4,11 @@ const services = async (req, res) => {
   try {
     const response = await Service.find();
     if (!response) {
-      res.status(400).json({ msg: "Service not found" });
+      return res.status(400).json({ msg: "Service not found" });
     }
-    res.status(200).json({ msg: response });
+    return res.status(200).json({ msg: response });
   } catch (error) {
-    res.status(500).json({ msg: "Server error" });
+    return res.status(500).json({ msg: "Server error" });
   }
 };
 

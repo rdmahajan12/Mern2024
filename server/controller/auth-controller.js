@@ -2,10 +2,9 @@ const User = require("../models/user_model");
 
 const home = async (req, res) => {
   try {
-    console.log(req.body);
-    res.status(200).json({ message: req.body });
+    return res.status(200).json({ message: req.body });
   } catch (error) {
-    console.log(error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -25,13 +24,13 @@ const register = async (req, res) => {
       phone,
     });
 
-    res.status(200).json({
+    return res.status(200).json({
       message: "Registration successfully done",
       token: await userCreated.generateToken(),
       userId: userCreated._id.toString(),
     });
   } catch (error) {
-    res.status(500).json("Internal server error");
+    return res.status(500).json("Internal server error");
   }
 };
 
@@ -45,7 +44,7 @@ const login = async (req, res, next) => {
 
     const user = await userExist.comparePassword(password);
     if (user) {
-      res.status(200).json({
+      return res.status(200).json({
         message: "Login successfully done",
         token: await userExist.generateToken(),
         userId: userExist._id.toString(),
@@ -54,7 +53,7 @@ const login = async (req, res, next) => {
       return res.status(401).json("email and password not found");
     }
   } catch (error) {
-    res.status(500).json("Internal server error");
+    return res.status(500).json("Internal server error");
   }
 };
 
