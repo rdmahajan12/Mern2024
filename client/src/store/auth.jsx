@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [service, setService] = useState([]);
   const authToken = `Bearer ${token}`;
-  const API = "https://mern2024-nine.vercel.app";
+  const API = "http://localhost:3000";
 
   const setServerToken = (serverToken) => {
     setToken(serverToken);
