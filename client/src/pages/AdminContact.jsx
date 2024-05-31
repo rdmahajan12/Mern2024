@@ -1,49 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
-import { Link } from "react-router-dom";
-import { MdDelete, MdEdit } from "react-icons/md";
-
-const URL = "http://localhost:3000/api/admin/contacts";
+import { MdDelete } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const AdminContact = () => {
-  const { authToken } = useAuth();
+  const { authToken, API } = useAuth();
   const [userContact, setUserContact] = useState([]);
 
   const getAllUsers = async () => {
     try {
-      const res = await fetch(URL, {
+      const res = await fetch(`${API}/api/admin/contacts`, {
         method: "GET",
         headers: {
           Authorization: authToken,
         },
       });
       const data = await res.json();
-      console.log({ data });
       setUserContact(data);
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
 
   const deleteUser = async (id) => {
     try {
-      const res = await fetch(
-        `http://localhost:3000/api/admin/users/delete/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: authToken,
-          },
-        }
-      );
-      const data = await res.json();
-      console.log(data);
+      const res = await fetch(`${API}/api/admin/users/delete/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: authToken,
+        },
+      });
 
       if (res.ok) {
         getAllUsers();
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
 

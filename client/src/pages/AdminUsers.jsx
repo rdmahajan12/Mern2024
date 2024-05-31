@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AdminUsers = () => {
   const { authToken, API } = useAuth();
@@ -18,7 +19,7 @@ const AdminUsers = () => {
       const data = await res.json();
       setUser(data);
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
 
@@ -30,14 +31,12 @@ const AdminUsers = () => {
           Authorization: authToken,
         },
       });
-      const data = await res.json();
-      console.log(data);
 
       if (res.ok) {
         getAllUsers();
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
 

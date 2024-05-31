@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -37,11 +38,11 @@ export const AuthProvider = ({ children }) => {
         setUser(data.userData);
         setIsLoading(false);
       } else {
-        console.log("user not fetching data");
+        toast.error("user not fetching data");
         setIsLoading(false);
       }
     } catch (error) {
-      console.log("error fetching issue");
+      toast.error("error fetching issue");
     }
   };
 
@@ -53,11 +54,10 @@ export const AuthProvider = ({ children }) => {
 
       if (res.ok) {
         const data = await res.json();
-        console.log(data.msg);
         setService(data.msg);
       }
     } catch (error) {
-      console.log("server error");
+      toast.error("server error");
     }
   };
 

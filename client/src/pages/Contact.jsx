@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../store/auth";
-
-const URL = "http://localhost:3000/api/form/contact";
+import { toast } from "react-toastify";
 
 const initialData = {
   username: "",
@@ -52,7 +51,7 @@ const Contact = () => {
         console.log({ contactData });
       }
     } catch (error) {
-      console.log("contact", error);
+      toast.error("contact", error);
     }
   };
 
