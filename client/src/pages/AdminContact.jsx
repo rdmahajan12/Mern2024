@@ -18,7 +18,7 @@ const AdminContact = () => {
       const data = await res.json();
       setUserContact(data);
     } catch (error) {
-      toast.error(error);
+      console.log(error);
     }
   };
 
@@ -35,7 +35,7 @@ const AdminContact = () => {
         getAllUsers();
       }
     } catch (error) {
-      toast.error(error);
+      console.log(error);
     }
   };
 

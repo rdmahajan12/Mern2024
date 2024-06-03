@@ -19,7 +19,7 @@ const AdminUsers = () => {
       const data = await res.json();
       setUser(data);
     } catch (error) {
-      toast.error(error);
+      console.log(error);
     }
   };
 
@@ -36,7 +36,7 @@ const AdminUsers = () => {
         getAllUsers();
       }
     } catch (error) {
-      toast.error(error);
+      console.log(error);
     }
   };
 

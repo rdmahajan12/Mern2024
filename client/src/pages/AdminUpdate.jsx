@@ -28,7 +28,7 @@ const AdminUpdate = () => {
         setUpdateUser(updateUserData);
       }
     } catch (error) {
-      toast.error(error);
+      console.log(error);
     }
   };
 
@@ -60,7 +60,7 @@ const AdminUpdate = () => {
         toast.error("Not Updated");
       }
     } catch (error) {
-      toast.error("update", error);
+      console.log("update", error);
     }
   };
 

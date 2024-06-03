@@ -51,7 +51,7 @@ const Contact = () => {
         console.log({ contactData });
       }
     } catch (error) {
-      toast.error("contact", error);
+      console.log("contact", error);
     }
   };
 

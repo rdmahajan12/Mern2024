@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [service, setService] = useState([]);
   const authToken = `Bearer ${token}`;
-  const API = "https://serverpanel.vercel.app";
+  const API = "https://mern2024-9vs8.onrender.com";
 
   const setServerToken = (serverToken) => {
     setToken(serverToken);
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
         setIsLoading(false);
       }
     } catch (error) {
-      toast.error("error fetching issue");
+      console.log("error fetching issue");
     }
   };
 
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
         setService(data.msg);
       }
     } catch (error) {
-      toast.error("server error");
+      console.log("server error");
     }
   };
 
